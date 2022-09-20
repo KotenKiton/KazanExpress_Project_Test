@@ -1,22 +1,21 @@
 plugins {
     id 'java-library'
     id "io.qameta.allure" version "2.9.6"
+    id "io.freefair.lombok" version "6.0.0-m2"
+    id 'org.gradle.test-retry' version '1.0.0'
 }
 
 repositories {
     mavenCentral()
 }
-compileJava {
-    options.encoding = 'UTF-8'
-}
-compileTestJava {
-    options.encoding = 'UTF-8'
-}
 
-def allureVersion = '2.19.0',
-    selenideVersion = '6.7.4',
+def selenideVersion = '6.7.4',
     junitVersion = '5.9.0',
-    slf4jVersion = '2.0.0'
+    slfVersion = '2.0.0',
+    ownerVersion = "1.0.4",
+    fakerVersion = "1.0.2",
+    allureVersion = '2.19.0'
+
 
 allure {
     report {
@@ -36,16 +35,44 @@ dependencies {
     testImplementation(
             "com.codeborne:selenide:$selenideVersion",
             "io.qameta.allure:allure-selenide:$allureVersion",
-            "com.github.javafaker:javafaker:1.0.2",
             "org.junit.jupiter:junit-jupiter:$junitVersion",
-            "org.aeonbits.owner:owner:1.0.12",
-            "org.slf4j:slf4j-simple:$slf4jVersion"
+            "com.github.javafaker:javafaker:$fakerVersion",
+            "org.slf4j:slf4j-simple:$slfVersion",
+            "io.qameta.allure:allure-rest-assured:$allureVersion",
+            "io.rest-assured:rest-assured:4.5.1",
+            'org.postgresql:postgresql:42.1.4',
+            'org.springframework:spring-jdbc:5.3.20',
+            "org.aeonbits.owner:owner:$ownerVersion",
+            'org.assertj:assertj-core:3.22.0'
     )
+}
+
+test {
+    useJUnitPlatform()
+    retry {
+        failOnPassedAfterRetry = true
+        maxFailures = 10
+        maxRetries = 1
+    }
+}
+
+compileTestJava {
+    options.encoding = 'UTF-8'
 }
 
 tasks.withType(Test) {
     systemProperties(System.getProperties())
     useJUnitPlatform()
+
+    if (System.getProperty("threads") != null) {
+        systemProperties += [
+                'junit.jupiter.execution.parallel.enabled'                 : true,
+                'junit.jupiter.execution.parallel.mode.default'            : 'concurrent',
+                'junit.jupiter.execution.parallel.mode.classes.default'    : 'concurrent',
+                'junit.jupiter.execution.parallel.config.strategy'         : 'fixed',
+                'junit.jupiter.execution.parallel.config.fixed.parallelism': System.getProperty("threads").toInteger()
+        ]
+    }
 
     testLogging {
         lifecycle {
@@ -54,4 +81,3 @@ tasks.withType(Test) {
         }
     }
 }
-
