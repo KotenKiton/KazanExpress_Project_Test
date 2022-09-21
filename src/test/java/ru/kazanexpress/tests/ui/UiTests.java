@@ -17,7 +17,7 @@ public class UiTests {
         step("Открыть главную страницу", () -> {
             Selenide.open("https://kazanexpress.ru/");
             //$$("p.home-hero-block-module--title--1HwUe").first()
-                    //.shouldHave(text("Потому что квартиру  сейчас  покупают на m2.ru"));
+                    //.shouldHave(text(""));
         });
     }
 
