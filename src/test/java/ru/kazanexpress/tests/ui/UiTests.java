@@ -1,14 +1,25 @@
 package ru.kazanexpress.tests.ui;
 
+import com.codeborne.selenide.Selenide;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
 
 public class UiTests {
+
+    @BeforeEach
+    @DisplayName("Проверка поиска в разделе “Купить” на стартовой странице")
+    void firstTest() {
+        step("Открыть главную страницу", () -> {
+            Selenide.open("https://kazanexpress.ru/");
+            //$$("p.home-hero-block-module--title--1HwUe").first()
+                    //.shouldHave(text("Потому что квартиру  сейчас  покупают на m2.ru"));
+        });
+    }
 
     @Test
     @DisplayName("Отображение количества товара, после добавления 1 позиции")
