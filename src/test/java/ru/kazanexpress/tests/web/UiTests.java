@@ -1,4 +1,4 @@
-package ru.kazanexpress.tests.ui;
+package ru.kazanexpress.tests.web;
 
 import com.codeborne.selenide.Selenide;
 import org.junit.jupiter.api.BeforeEach;

@@ -14,6 +14,7 @@ import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 import static org.openqa.selenium.logging.LogType.BROWSER;
 
 public class AllureAttachments {
+
     @Attachment(value = "{attachName}", type = "text/plain")
     public static String attachAsText(String attachName, String message) {
         return message;
@@ -25,7 +26,7 @@ public class AllureAttachments {
     }
 
     @Attachment(value = "{attachName}", type = "image/png")
-    public static byte[] screenshotAs(String attachName) {
+    public static byte[] screenshotAs() {
         return ((TakesScreenshot) getWebDriver()).getScreenshotAs(OutputType.BYTES);
     }
 
@@ -35,7 +36,7 @@ public class AllureAttachments {
                 String.join("\n", Selenide.getWebDriverLogs(BROWSER))
         );
     }
-    // Видео паста
+
     @Attachment(value = "Video", type = "text/html", fileExtension = ".html")
     public static String addVideo() {
         return "<html><body><video width='100%' height='100%' controls autoplay><source src='"
@@ -54,8 +55,10 @@ public class AllureAttachments {
         return null;
     }
 
-    public static String getSessionId(){
+    public static String getSessionId() {
         return ((RemoteWebDriver) getWebDriver()).getSessionId().toString();
     }
 }
+
+
 

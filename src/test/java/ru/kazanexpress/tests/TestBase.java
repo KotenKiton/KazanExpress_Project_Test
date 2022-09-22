@@ -43,7 +43,7 @@ public class TestBase {
 
     @AfterEach
     void addAttachments() {
-        AllureAttachments.screenshotAs("Last screenshot");
+        AllureAttachments.screenshotAs();
         AllureAttachments.pageSource();
         AllureAttachments.browserConsoleLogs();
         AllureAttachments.addVideo();
