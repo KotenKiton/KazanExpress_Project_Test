@@ -1,4 +1,4 @@
-package ru.kazanexpress.tests.web;
+package ru.kazanexpress.tests.web.tests;
 
 import com.codeborne.selenide.Selenide;
 import org.junit.jupiter.api.BeforeEach;
@@ -9,7 +9,7 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
 
-public class UiTests {
+public class KazanExpressTests {
 
     @BeforeEach
     @DisplayName("Проверка поиска в разделе “Купить” на стартовой странице")
