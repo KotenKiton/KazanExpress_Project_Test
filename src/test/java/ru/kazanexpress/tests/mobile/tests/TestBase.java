@@ -7,6 +7,7 @@ import org.aeonbits.owner.ConfigFactory;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
+import ru.kazanexpress.tests.mobile.helpers.AllureAttachments;
 import ru.kazanexpress.tests.web.config.WebConfig;
 import ru.kazanexpress.tests.web.drivers.DriverSettings;
 
@@ -31,11 +32,11 @@ public class TestBase {
 
     @AfterEach
     public void afterEach() {
-        Attach.screenshotAs();
-        Attach.pageSource();
-        Attach.browserConsoleLogs();
+        AllureAttachments.screenshotAs();
+        AllureAttachments.pageSource();
+        AllureAttachments.browserConsoleLogs();
         if (useRemote.equals("remote")) {
-            Attach.addVideo();
+            AllureAttachments.addVideo();
         }
         closeWebDriver();
     }
