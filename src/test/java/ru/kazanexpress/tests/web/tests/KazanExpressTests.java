@@ -17,7 +17,7 @@ public class KazanExpressTests {
         step("Открыть главную страницу", () -> {
             Selenide.open("https://kazanexpress.ru/");
             //$$("p.home-hero-block-module--title--1HwUe").first()
-                    //.shouldHave(text(""));
+                    //.shouldHave(text("LINK"));
         });
     }
 
