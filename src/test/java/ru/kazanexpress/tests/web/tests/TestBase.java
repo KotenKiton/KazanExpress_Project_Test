@@ -16,6 +16,10 @@ public class TestBase {
     @BeforeAll
     static void setUp() {
 
+        Configuration.holdBrowserOpen = true;
+        Configuration.baseUrl = "https://kazanexpress.ru/";
+        Configuration.browserSize = "1920x1080";
+
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
         //CredentialsConfig configLogg = ConfigFactory.create(CredentialsConfig.class);
 

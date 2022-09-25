@@ -9,15 +9,16 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
 
-public class KazanExpressTests {
+public class KazanExpressTests extends TestBase {
 
+    @Test
     @BeforeEach
-    @DisplayName("Проверка поиска в разделе “Купить” на стартовой странице")
+    @DisplayName("")
     void firstTest() {
         step("Открыть главную страницу", () -> {
-            Selenide.open("https://kazanexpress.ru/");
-            //$$("p.home-hero-block-module--title--1HwUe").first()
-                    //.shouldHave(text("LINK"));
+            Selenide.open("");
+            $$("").first()
+                    .shouldHave(text(""));
         });
     }
 
@@ -38,4 +39,6 @@ public class KazanExpressTests {
         step("Проверить, что в корзине отображается товар в количестве 1",()->
                 $("[data-test-id='button__cart']").shouldHave(text("1")));
     }
+
+
 }
