@@ -6,6 +6,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Selectors.byLinkText;
 import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
 
@@ -13,7 +14,7 @@ public class KazanExpressTests extends TestBase {
 
     @Test
     @BeforeEach
-    @DisplayName("Проверка раздела 'Популярное' на стартовой странице")
+    @DisplayName("Проверка 'Хэдэра' сайта на стартовой странице")
     void firstTest() {
         step("Открыть главную страницу", () -> {
             Selenide.open("");
@@ -23,22 +24,12 @@ public class KazanExpressTests extends TestBase {
     }
 
     @Test
-    @DisplayName("Отображение количества товара, после добавления 1 позиции")
-    void addCardTest(){
-        step("Открыть главную страницу 'https://kazanexpress.ru/'", () ->
-                open(""));
-
-        step("Нажать кнопку 'Добавить в корзину'", () ->
-                $("[data-test-id='button__add-to-cart']").click());
-
-        step("Подтвердить добавление в корзину, в поп-ап окне", () ->{
-            $(".characteristic-wrapper").click();
-            $("[data-test-id='button__add-cart']").click();
+    @DisplayName("Проверка раздела 'Электроника' на стартовой странице")
+    void headerElectronicsTest() {
+        step("Нажать на кнопку 'Электроника' на главной странице", () -> {
+            $(byLinkText("Электроника")).click(); // 1. СЕЛИНУМ ИДЕ ВЗЯЛ. НЕ разобрался с селекторами.
+            $("[data-test-id=text__title]").shouldHave(text("Электроника"));
         });
-
-        step("Проверить, что в корзине отображается товар в количестве 1",()->
-                $("[data-test-id='button__cart']").shouldHave(text("1")));
     }
-
 
 }
