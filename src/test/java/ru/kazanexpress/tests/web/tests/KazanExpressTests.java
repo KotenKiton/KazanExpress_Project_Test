@@ -13,12 +13,12 @@ public class KazanExpressTests extends TestBase {
 
     @Test
     @BeforeEach
-    @DisplayName("")
+    @DisplayName("Проверка раздела 'Популярное' на стартовой странице")
     void firstTest() {
         step("Открыть главную страницу", () -> {
             Selenide.open("");
-            $$("").first()
-                    .shouldHave(text(""));
+            $$("[data-test-id=text__promo-delivery-info]").first()
+                    .shouldHave(text("Доставим ваш заказ бесплатно — всего за 1 день!"));
         });
     }
 
