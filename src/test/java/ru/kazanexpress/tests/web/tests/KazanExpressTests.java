@@ -6,6 +6,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
@@ -35,6 +36,11 @@ public class KazanExpressTests extends TestBase {
         });
     }
 
+    @ValueSource(strings = {
+            "iphone",
+            "Apple Watch"
+    })
+    @DisplayName("Параметризованные тесты на поиск")
     @ParameterizedTest(name = "Параметризованные тесты на поиск")
     void texPortSearchTests(String testData) { // будет передано сюда!
         open("");
