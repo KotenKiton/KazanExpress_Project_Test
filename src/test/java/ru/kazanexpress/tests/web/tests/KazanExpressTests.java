@@ -1,5 +1,6 @@
 package ru.kazanexpress.tests.web.tests;
 
+import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Selenide;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -8,6 +9,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
 import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byLinkText;
 import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
@@ -44,10 +46,10 @@ public class KazanExpressTests extends TestBase {
         $("[data-test-id=input__search]").click();
         $("[data-test-id=input__search]").setValue(testData);
         $("[data-test-id=button__search]").click();
-//        //ождиаемый результат
-//        $$("")
-//                .find(Condition.text(testData))
-//                .shouldBe(visible);
+        //ождиаемый результат
+        $$("[data-test-id=text__title]")
+                .find(Condition.text(testData))
+                .shouldBe(visible);
     }
 
 
