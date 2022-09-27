@@ -6,6 +6,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
 import static com.codeborne.selenide.Condition.text;
@@ -14,10 +15,10 @@ import static com.codeborne.selenide.Selectors.byLinkText;
 import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
 
-public class KazanExpressTests extends TestBase {
+public class LendingTests extends TestBase {
 
     @Test
-    @BeforeEach
+    //@BeforeEach
     @DisplayName("Проверка 'Хэдэра' сайта на стартовой странице")
     void firstTest() {
         step("Открыть главную страницу", () -> {
@@ -41,7 +42,7 @@ public class KazanExpressTests extends TestBase {
             "Apple Watch"
     })
     @ParameterizedTest(name = "Проверка строки поиска (вводное значение {0}) ")
-    void texPortSearchTests(String testData) {
+    void keSearchTest(String testData) {
         open("");
         $("[data-test-id=input__search]").click();
         $("[data-test-id=input__search]").setValue(testData);
@@ -49,6 +50,24 @@ public class KazanExpressTests extends TestBase {
         //ождиаемый результат
         $$("[data-test-id=text__title]")
                 .find(Condition.text(testData))
+                .shouldBe(visible);
+    }
+
+    @CsvSource(value = {
+            "Macbook | Результаты поиска по запросу \"Macbook\""
+            ,
+            "Ipad | Результаты поиска по запросу \"Ipad\"\n"
+    },
+            delimiter = '|'
+    )
+    @ParameterizedTest(name = "Проверка строки поиска (вводное значение {0}), ожидаем результат: {1}")
+    void keSearchComplexTest(String testData, String expectedResult) {
+        open("");
+        $("[data-test-id=input__search]").click();
+        $("[data-test-id=input__search]").setValue(testData);
+        $("[data-test-id=button__search]").click();
+        $$("[data-test-id=text__title]")
+                .find(Condition.text(expectedResult))
                 .shouldBe(visible);
     }
 
