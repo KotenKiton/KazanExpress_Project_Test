@@ -1,7 +1,7 @@
 Test case № 3,4.
 
 Проверка поиска товара  в магазине https://kazanexpress.ru/
-Тестовые данные [iphone,Apple Watch]
+Тестовые данные [Iphone,Apple Watch]
 Преоритет - Critical
 Предусловия: Открыт браузер со страницей https://kazanexpress.ru/
 

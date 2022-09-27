@@ -26,7 +26,7 @@ public class KazanExpressTests extends TestBase {
     }
 
     @Test
-    @DisplayName("Проверка раздела 'Электроника' на стартовой странице")
+    @DisplayName("проверка заголовка страницы 'Электроника'")
     void headerElectronicsTest() {
         step("Нажать на кнопку 'Электроника' на главной странице", () -> {
             $(byLinkText("Электроника")).click(); // 1. СЕЛИНУМ ИДЕ ВЗЯЛ. НЕ разобрался с селекторами.
@@ -35,10 +35,10 @@ public class KazanExpressTests extends TestBase {
     }
 
     @ValueSource(strings = {
-            "iphone",
+            "Iphone",
             "Apple Watch"
     })
-    @ParameterizedTest(name = "Параметризованные тесты на поиск {0}")
+    @ParameterizedTest(name = "Проверка строки поиска (вводное значение {0}) ")
     void texPortSearchTests(String testData) {
         open("");
         $("[data-test-id=input__search]").click();
