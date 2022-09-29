@@ -46,8 +46,8 @@ public class UiTests extends TestBase {
     })
     @ParameterizedTest(name = "Проверка строки поиска (вводное значение {0}) ")
     void keSearchTest(String testData) {
+
         open("");
-        $("[data-test-id=input__search]").click();
         $("[data-test-id=input__search]").setValue(testData);
         $("[data-test-id=button__search]").click();
         //ождиаемый результат
@@ -66,7 +66,6 @@ public class UiTests extends TestBase {
     @ParameterizedTest(name = "Проверка строки поиска (вводное значение {0}), ожидаем результат: {1}")
     void keSearchComplexTest(String testData, String expectedResult) {
         open("");
-        $("[data-test-id=input__search]").click();
         $("[data-test-id=input__search]").setValue(testData);
         $("[data-test-id=button__search]").click();
         $$("[data-test-id=text__title]")
@@ -81,8 +80,8 @@ public class UiTests extends TestBase {
         autorizationFormPage
                 .openPage()
                 .authButtonClick()
-                .setLoginField(userLogin)
-                .setPasswordField(userPassword)
+//                .setLoginField(userLogin)
+//                .setPasswordField(userPassword)
                 .clickEnterButton()
 
                 //asserts

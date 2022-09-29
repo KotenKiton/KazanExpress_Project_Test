@@ -12,7 +12,8 @@ public class AutorizationFormPage {
     SelenideElement inputLogin = $("[data-test-id=input__login]");
     SelenideElement inputPassword = $("[data-test-id=input__password]");
     SelenideElement buttonSignIn = $("[data-test-id=button__sign-in]");
-
+    SelenideElement buttonUser = $("[data-test-id=button__user]");
+    SelenideElement headerAuthForm = $("[data-test-id=text__name-modal-base]");
 
     // actions
     public AutorizationFormPage openPage() {
@@ -23,7 +24,7 @@ public class AutorizationFormPage {
 
     public AutorizationFormPage authButtonClick() {
         buttonAuth.click();
-        $("[data-test-id=text__name-modal-base]").shouldHave(text("Вход"));
+        headerAuthForm.shouldHave(text("Вход"));
 
         return this;
     }
@@ -47,6 +48,13 @@ public class AutorizationFormPage {
     }
 
     public void assertUserAuth() {
-        $("[data-test-id=button__user]").shouldHave(text("KotenKiton"));
+        buttonUser.shouldHave(text("KotenKiton"));
     }
+
+//    public void buttonSearchClick() {
+//        $("[data-test-id=button__search]").click();
+//
+//        return this;
+//
+//    }
 }
