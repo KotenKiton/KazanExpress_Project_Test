@@ -18,13 +18,11 @@ public class AutorizationFormPage {
         $("[data-test-id=text__name-modal-base]").shouldHave(text("Вход"));
     }
 
-    public void setLoginField() {
-        $("[data-test-id=input__login]").click();
-        $("[data-test-id=input__login]").setValue("89116138904");
+    public void setLoginField(String value) {
+        $("[data-test-id=input__login]").setValue(value);
     }
-    public void setPasswordField(){
-        $("[data-test-id=input__password]").click();
-        $("[data-test-id=input__password]").setValue("12345678Asdf1369");
+    public void setPasswordField(String value){
+        $("[data-test-id=input__password]").setValue(value);
     }
     public void clickEnterButton() {
         $("[data-test-id=button__sign-in]").click();

@@ -75,12 +75,15 @@ public class UiTests extends TestBase {
     @Test
     @DisplayName("Тест формы авторизации")
     void AutorizationFormPage() {
-        new AutorizationFormPage().openPage();
-        new AutorizationFormPage().authButtonClick();
-        new AutorizationFormPage().setLoginField();
-        new AutorizationFormPage().setPasswordField();
-        new AutorizationFormPage().clickEnterButton();
-        new AutorizationFormPage().assertUserAuth();
+
+        AutorizationFormPage autorizationFormPage = new AutorizationFormPage();
+
+        autorizationFormPage.openPage();
+        autorizationFormPage.authButtonClick();
+        autorizationFormPage.setLoginField(userLogin);
+        autorizationFormPage.setPasswordField(userPassword);
+        autorizationFormPage.clickEnterButton();
+        autorizationFormPage.assertUserAuth();
 
     }
 
