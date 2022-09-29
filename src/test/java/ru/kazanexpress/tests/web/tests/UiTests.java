@@ -80,8 +80,8 @@ public class UiTests extends TestBase {
         autorizationFormPage
                 .openPage()
                 .authButtonClick()
-//                .setLoginField(userLogin)
-//                .setPasswordField(userPassword)
+                .setLoginField(userLogin)
+                .setPasswordField(userPassword)
                 .clickEnterButton()
 
                 //asserts
