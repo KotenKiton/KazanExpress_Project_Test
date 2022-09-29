@@ -9,6 +9,9 @@ import static com.codeborne.selenide.Selenide.open;
 public class AutorizationFormPage {
     // locators
     SelenideElement buttonAuth = $("[data-test-id=button__auth]");
+    SelenideElement inputLogin = $("[data-test-id=input__login]");
+    SelenideElement inputPassword = $("[data-test-id=input__password]");
+    SelenideElement buttonSignIn = $("[data-test-id=button__sign-in]");
 
 
     // actions
@@ -26,26 +29,24 @@ public class AutorizationFormPage {
     }
 
     public AutorizationFormPage setLoginField(String value) {
-        $("[data-test-id=input__login]").setValue(value);
+        inputLogin.setValue(value);
 
         return this;
     }
 
     public AutorizationFormPage setPasswordField(String value) {
-        $("[data-test-id=input__password]").setValue(value);
+        inputPassword.setValue(value);
 
         return this;
     }
 
     public AutorizationFormPage clickEnterButton() {
-        $("[data-test-id=button__sign-in]").click();
+        buttonSignIn.click();
 
         return this;
     }
 
-    public AutorizationFormPage assertUserAuth() {
+    public void assertUserAuth() {
         $("[data-test-id=button__user]").shouldHave(text("KotenKiton"));
-
-        return this;
     }
 }
