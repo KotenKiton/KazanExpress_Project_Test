@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
+import ru.kazanexpress.tests.web.pages.AutorizationFormPage;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
@@ -15,10 +16,10 @@ import static com.codeborne.selenide.Selectors.byLinkText;
 import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
 
-public class LendingTests extends TestBase {
+public class UiTests extends TestBase {
 
     @Test
-    //@BeforeEach
+    @BeforeEach
     @DisplayName("Проверка 'Хэдэра' сайта на стартовой странице")
     void firstTest() {
         step("Открыть главную страницу", () -> {
@@ -69,6 +70,18 @@ public class LendingTests extends TestBase {
         $$("[data-test-id=text__title]")
                 .find(Condition.text(expectedResult))
                 .shouldBe(visible);
+    }
+
+    @Test
+    @DisplayName("Тест формы авторизации")
+    void AutorizationFormPage() {
+        new AutorizationFormPage().openPage();
+        new AutorizationFormPage().authButtonClick();
+        new AutorizationFormPage().setLoginField();
+        new AutorizationFormPage().setPasswordField();
+        new AutorizationFormPage().clickEnterButton();
+        new AutorizationFormPage().assertUserAuth();
+
     }
 
 

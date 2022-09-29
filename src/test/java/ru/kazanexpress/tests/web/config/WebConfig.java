@@ -9,7 +9,7 @@ import org.aeonbits.owner.Config;
 public interface WebConfig extends Config {
 
     @Key("baseUrl")
-    @DefaultValue("https://kazanexpress.ru/") // Default CARUSEL
+    @DefaultValue("https://kazanexpress.ru/")
     String baseUrl();
     @Key("browserSize")
     @DefaultValue("1200x900")
