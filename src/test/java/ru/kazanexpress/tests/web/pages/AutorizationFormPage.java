@@ -1,33 +1,51 @@
 package ru.kazanexpress.tests.web.pages;
 
+import com.codeborne.selenide.SelenideElement;
+
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
 public class AutorizationFormPage {
     // locators
+    SelenideElement buttonAuth = $("[data-test-id=button__auth]");
 
 
     // actions
-    public void openPage() {
+    public AutorizationFormPage openPage() {
         open("");
+
+        return this;
     }
 
-    public void authButtonClick() {
-        $("[data-test-id=button__auth]").click();
+    public AutorizationFormPage authButtonClick() {
+        buttonAuth.click();
         $("[data-test-id=text__name-modal-base]").shouldHave(text("Вход"));
+
+        return this;
     }
 
-    public void setLoginField(String value) {
+    public AutorizationFormPage setLoginField(String value) {
         $("[data-test-id=input__login]").setValue(value);
+
+        return this;
     }
-    public void setPasswordField(String value){
+
+    public AutorizationFormPage setPasswordField(String value) {
         $("[data-test-id=input__password]").setValue(value);
+
+        return this;
     }
-    public void clickEnterButton() {
+
+    public AutorizationFormPage clickEnterButton() {
         $("[data-test-id=button__sign-in]").click();
+
+        return this;
     }
-    public void assertUserAuth() {
+
+    public AutorizationFormPage assertUserAuth() {
         $("[data-test-id=button__user]").shouldHave(text("KotenKiton"));
+
+        return this;
     }
 }

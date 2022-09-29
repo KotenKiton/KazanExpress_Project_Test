@@ -18,6 +18,8 @@ import static io.qameta.allure.Allure.step;
 
 public class UiTests extends TestBase {
 
+    AutorizationFormPage autorizationFormPage = new AutorizationFormPage();
+
     @Test
     @BeforeEach
     @DisplayName("Проверка 'Хэдэра' сайта на стартовой странице")
@@ -76,14 +78,15 @@ public class UiTests extends TestBase {
     @DisplayName("Тест формы авторизации")
     void AutorizationFormPage() {
 
-        AutorizationFormPage autorizationFormPage = new AutorizationFormPage();
+        autorizationFormPage
+                .openPage()
+                .authButtonClick()
+                .setLoginField(userLogin)
+                .setPasswordField(userPassword)
+                .clickEnterButton()
 
-        autorizationFormPage.openPage();
-        autorizationFormPage.authButtonClick();
-        autorizationFormPage.setLoginField(userLogin);
-        autorizationFormPage.setPasswordField(userPassword);
-        autorizationFormPage.clickEnterButton();
-        autorizationFormPage.assertUserAuth();
+                //asserts
+                .assertUserAuth();
 
     }
 
