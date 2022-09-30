@@ -51,10 +51,4 @@ public class AutorizationFormPage {
         buttonUser.shouldHave(text("KotenKiton"));
     }
 
-//    public void buttonSearchClick() {
-//        $("[data-test-id=button__search]").click();
-//
-//        return this;
-//
-//    }
 }

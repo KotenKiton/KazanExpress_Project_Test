@@ -75,7 +75,7 @@ public class UiTests extends TestBase {
 
     @Test
     @DisplayName("Тест формы авторизации")
-    void AutorizationFormPage() {
+    void authPageTest() {
 
         autorizationFormPage
                 .openPage()
