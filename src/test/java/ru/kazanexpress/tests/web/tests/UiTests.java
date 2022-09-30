@@ -84,6 +84,7 @@ public class UiTests extends TestBase {
                 .setPasswordField(userPassword)
                 .clickEnterButton()
 
+
                 //asserts
                 .assertUserAuth();
 
