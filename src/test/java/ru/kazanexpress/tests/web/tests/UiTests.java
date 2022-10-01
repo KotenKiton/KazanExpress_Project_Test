@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
+import ru.kazanexpress.tests.web.config.WebDriverConfig;
 import ru.kazanexpress.tests.web.pages.AutorizationFormPage;
 
 import static com.codeborne.selenide.Condition.text;
@@ -80,8 +81,8 @@ public class UiTests extends TestBase {
         autorizationFormPage
                 .openPage()
                 .authButtonClick()
-                .setLoginField(userLogin)
-                .setPasswordField(userPassword)
+                //.setLoginField(userLogin)
+               //.setPasswordField(userPassword)
                 .clickEnterButton()
 
 
