@@ -1,8 +1,10 @@
 package ru.kazanexpress.tests.web.pages;
 
-public class CardMainPage {
+public class CardFirstPopularPage {
 
     // locators
+
+
     // actions
 
 }
