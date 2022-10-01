@@ -8,8 +8,8 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
-import ru.kazanexpress.tests.web.config.WebDriverConfig;
 import ru.kazanexpress.tests.web.pages.AutorizationFormPage;
+import ru.kazanexpress.tests.web.pages.CardFirstPopularPage;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
@@ -20,6 +20,7 @@ import static io.qameta.allure.Allure.step;
 public class UiTests extends TestBase {
 
     AutorizationFormPage autorizationFormPage = new AutorizationFormPage();
+    CardFirstPopularPage cardFirstPopularPage = new CardFirstPopularPage();
 
     @Test
     @BeforeEach
@@ -82,9 +83,8 @@ public class UiTests extends TestBase {
                 .openPage()
                 .authButtonClick()
                 //.setLoginField(userLogin)
-               //.setPasswordField(userPassword)
+                //.setPasswordField(userPassword)
                 .clickEnterButton()
-
 
                 //asserts
                 .assertUserAuth();
@@ -93,20 +93,16 @@ public class UiTests extends TestBase {
 
     @Test
     @DisplayName("Отображение количества товара, после добавления 1 позиции")
-    void addCardTest(){
-        step("Открыть главную страницу 'https://kazanexpress.ru/'", () ->
-                open(""));
+    void addCardTest() {
 
-        step("Нажать кнопку 'Добавить в корзину'", () ->
-                $("[data-test-id='button__add-to-cart']").click());
+        cardFirstPopularPage
+                .openPage()
+                .addCard()
+                .confirmationPopUp()
 
-        step("Подтвердить добавление в корзину, в поп-ап окне", () ->{
-            $(".characteristic-wrapper").click();
-            $("[data-test-id='button__add-cart']").click();
-        });
+                //asserts
+                .productIsEqualToOne();
 
-        step("Проверить, что в корзине отображается товар в количестве 1",()->
-                $("[data-test-id='button__cart']").shouldHave(text("1")));
     }
 
 
