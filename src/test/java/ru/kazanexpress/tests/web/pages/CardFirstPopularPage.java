@@ -10,6 +10,10 @@ import static io.qameta.allure.Allure.step;
 public class CardFirstPopularPage {
 
     // locators
+    SelenideElement addCard = $("[data-test-id='button__add-to-cart']");
+    SelenideElement charicWrapper = $(".characteristic-wrapper");
+    SelenideElement addCardButton = $("$([data-test-id='button__add-cart']");
+    SelenideElement buttonCard = $($("[data-test-id='button__cart']"));
 
     // actions
     public CardFirstPopularPage openPage() {
@@ -21,7 +25,7 @@ public class CardFirstPopularPage {
 
     public CardFirstPopularPage addCard() {
         step("Нажать кнопку 'Добавить в корзину'", () ->
-                $("[data-test-id='button__add-to-cart']").click());
+                addCard.click());
 
         return this;
 
@@ -29,21 +33,18 @@ public class CardFirstPopularPage {
 
     public CardFirstPopularPage confirmationPopUp() {
         step("Подтвердить добавление в корзину, в поп-ап окне", () -> {
-            $(".characteristic-wrapper").click();
-            $("[data-test-id='button__add-cart']").click();
+            charicWrapper.click();
+            addCardButton.click();
 
         });
 
         return this;
     }
 
-
     public CardFirstPopularPage productIsEqualToOne() {
         step("Проверить, что в корзине отображается товар в количестве 1", () ->
-                $("[data-test-id='button__cart']").shouldHave(text("1")));
+                buttonCard.shouldHave(text("1")));
 
         return this;
     }
-
-
 }

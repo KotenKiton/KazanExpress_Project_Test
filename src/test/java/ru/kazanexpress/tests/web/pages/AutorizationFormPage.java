@@ -7,6 +7,7 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
 public class AutorizationFormPage {
+
     // locators
     SelenideElement buttonAuth = $("[data-test-id=button__auth]");
     SelenideElement inputLogin = $("[data-test-id=input__login]");
@@ -50,5 +51,4 @@ public class AutorizationFormPage {
     public void assertUserAuth() {
         buttonUser.shouldHave(text("KotenKiton"));
     }
-
 }
