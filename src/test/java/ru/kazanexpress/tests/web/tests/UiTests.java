@@ -1,7 +1,6 @@
 package ru.kazanexpress.tests.web.tests;
 
 import com.codeborne.selenide.Condition;
-import com.codeborne.selenide.Selenide;
 import org.aeonbits.owner.ConfigFactory;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -15,7 +14,7 @@ import ru.kazanexpress.tests.web.pages.CardFirstPopularPage;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selectors.byLinkText;
+import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
 
@@ -28,13 +27,12 @@ public class UiTests extends TestBase {
     String userLogin = webConfig.userLogin();
     String userPassword = webConfig.userPassword();
 
-
     @Test
     @BeforeEach
     @DisplayName("Проверка 'Хэдэра' сайта на стартовой странице")
     void firstTest() {
         step("Открыть главную страницу", () -> {
-            Selenide.open("");
+            open("");
             $$("[data-test-id=text__promo-delivery-info]").first()
                     .shouldHave(text("Доставим ваш заказ бесплатно — всего за 1 день!"));
         });
@@ -43,8 +41,11 @@ public class UiTests extends TestBase {
     @Test
     @DisplayName("проверка заголовка страницы 'Электроника'")
     void headerElectronicsTest() {
+        step("Открыть главную страницу", () ->
+                open(""));
+
         step("Нажать на кнопку 'Электроника' на главной странице", () -> {
-            $(byLinkText("Электроника")).click(); // 1. СЕЛИНУМ ИДЕ ВЗЯЛ. НЕ разобрался с селекторами.
+            $(byText("Электроника")).click();
             $("[data-test-id=text__title]").shouldHave(text("Электроника"));
         });
     }
@@ -59,7 +60,6 @@ public class UiTests extends TestBase {
         open("");
         $("[data-test-id=input__search]").setValue(testData);
         $("[data-test-id=button__search]").click();
-        //ождиаемый результат
         $$("[data-test-id=text__title]")
                 .find(Condition.text(testData))
                 .shouldBe(visible);
@@ -95,7 +95,6 @@ public class UiTests extends TestBase {
 
                 //asserts
                 .assertUserAuth();
-
     }
 
     @Test
@@ -109,6 +108,5 @@ public class UiTests extends TestBase {
 
                 //asserts
                 .productIsEqualToOne();
-
     }
 }
