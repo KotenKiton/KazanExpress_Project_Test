@@ -2,12 +2,14 @@ package ru.kazanexpress.tests.web.tests;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Selenide;
+import org.aeonbits.owner.ConfigFactory;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
+import ru.kazanexpress.tests.web.config.WebConfig;
 import ru.kazanexpress.tests.web.pages.AutorizationFormPage;
 import ru.kazanexpress.tests.web.pages.CardFirstPopularPage;
 
@@ -21,6 +23,11 @@ public class UiTests extends TestBase {
 
     AutorizationFormPage autorizationFormPage = new AutorizationFormPage();
     CardFirstPopularPage cardFirstPopularPage = new CardFirstPopularPage();
+
+    WebConfig webConfig = ConfigFactory.create(WebConfig.class, System.getProperties());
+    String userLogin = webConfig.userLogin();
+    String userPassword = webConfig.userPassword();
+
 
     @Test
     @BeforeEach
@@ -82,8 +89,8 @@ public class UiTests extends TestBase {
         autorizationFormPage
                 .openPage()
                 .authButtonClick()
-                //.setLoginField(userLogin)
-                //.setPasswordField(userPassword)
+                .setLoginField(userLogin)
+                .setPasswordField(userPassword)
                 .clickEnterButton()
 
                 //asserts
@@ -104,6 +111,4 @@ public class UiTests extends TestBase {
                 .productIsEqualToOne();
 
     }
-
-
 }

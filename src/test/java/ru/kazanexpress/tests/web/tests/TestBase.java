@@ -23,8 +23,8 @@ public class TestBase {
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
         //CredentialsConfig configLogg = ConfigFactory.create(CredentialsConfig.class);
 
-       //String login = configLogg.login();
-       // String password = configLogg.password();
+       //String login = configLog.login();
+       // String password = configLog.password();
         String remoteUrlSelenoid = System.getProperty("remoteUrl", "selenoid.autotests.cloud/wd/hub");
         String browserSize = System.getProperty("browserSize", "1920x1080");
         String browser = System.getProperty("browser", "chrome");
