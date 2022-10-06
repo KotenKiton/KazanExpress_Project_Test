@@ -10,12 +10,32 @@ import static io.restassured.RestAssured.given;
 import static io.restassured.http.ContentType.JSON;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.notNullValue;
+import static ru.kazanexpress.tests.api.spec.Specs.request;
+import static ru.kazanexpress.tests.api.spec.Specs.responseSpec200;
 
 public class ApiTest {
     @BeforeAll
     static void setUp() {
+
         RestAssured.baseURI = "https://kazanexpress.ru/";
     }
+    @Test
+    @DisplayName("200test")
+    void postRegisterUserSuccess() {
+        String body = "{\"id\": \"250186\", \"title\": \"Велосипедки женские, шорты спортивные\" }";
+
+        given()
+                .spec(request)
+                .body(body)
+                .when()
+                .log().all() // Раскроет всё тело запроса
+                .then()
+                .log().all()
+                .spec(responseSpec200)
+                .body("id", is(250186));
+    }
+
+
 
 //https://api.kazanexpress.ru/api/v2/product/250186
     // "payload": {
@@ -53,23 +73,6 @@ public class ApiTest {
                 .statusCode(404);
     }
 
-    @Test
-    @DisplayName("200test")
-    void postRegisterUserSuccess() {
-        String body = "{\"email\": \"eve.holt@reqres.in\", \"password\": \"pistol\" }";
-
-        given()
-                .body(body)
-                .contentType(JSON)
-                .when()
-                .log().all() // Раскроет всё тело запроса
-                .post("https://reqres.in/api/register")
-                .then()
-                .log().all()
-                .statusCode(200)
-                .body("id", is(4))
-                .body("token", is(notNullValue()));
-    }
 
     @Test
     @DisplayName("201test")
