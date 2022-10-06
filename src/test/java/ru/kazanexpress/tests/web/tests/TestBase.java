@@ -3,18 +3,24 @@ package ru.kazanexpress.tests.web.tests;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.selenide.AllureSelenide;
+import io.restassured.RestAssured;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import ru.kazanexpress.tests.web.helpers.AllureAttachments;
 
 import static com.codeborne.selenide.Selenide.closeWebDriver;
+import static ru.kazanexpress.tests.api.helpers.AllureRestAssuredFilter.withCustomTemplates;
 
 
 public class TestBase {
 
     @BeforeAll
     static void setUp() {
+
+        RestAssured.baseURI = "https://kazanexpress.ru/";
+        RestAssured.filters(withCustomTemplates());
+
 
         Configuration.holdBrowserOpen = true;
         Configuration.baseUrl = "https://kazanexpress.ru/";

@@ -4,6 +4,7 @@ import io.restassured.RestAssured;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import ru.kazanexpress.tests.web.tests.TestBase;
 
 import static io.restassured.RestAssured.get;
 import static io.restassured.RestAssured.given;
@@ -13,12 +14,8 @@ import static org.hamcrest.Matchers.notNullValue;
 import static ru.kazanexpress.tests.api.spec.Specs.request;
 import static ru.kazanexpress.tests.api.spec.Specs.responseSpec200;
 
-public class ApiTest {
-    @BeforeAll
-    static void setUp() {
+public class ApiTest extends TestBase {
 
-        RestAssured.baseURI = "https://kazanexpress.ru/";
-    }
     @Test
     @DisplayName("200test")
     void postRegisterUserSuccess() {
