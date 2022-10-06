@@ -7,7 +7,6 @@ import io.restassured.specification.ResponseSpecification;
 
 import static io.restassured.RestAssured.with;
 
-
 // ПАСТА
 public class Specs {
     public static RequestSpecification request = with()

@@ -21,7 +21,6 @@ public class TestBase {
         RestAssured.baseURI = "https://kazanexpress.ru/";
         RestAssured.filters(withCustomTemplates());
 
-
         Configuration.holdBrowserOpen = true;
         Configuration.baseUrl = "https://kazanexpress.ru/";
         Configuration.browserSize = "1920x1080";
@@ -29,8 +28,8 @@ public class TestBase {
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
         //CredentialsConfig configLogg = ConfigFactory.create(CredentialsConfig.class);
 
-       //String login = configLog.login();
-       // String password = configLog.password();
+        //String login = configLog.login();
+        // String password = configLog.password();
         String remoteUrlSelenoid = System.getProperty("remoteUrl", "selenoid.autotests.cloud/wd/hub");
         String browserSize = System.getProperty("browserSize", "1920x1080");
         String browser = System.getProperty("browser", "chrome");
