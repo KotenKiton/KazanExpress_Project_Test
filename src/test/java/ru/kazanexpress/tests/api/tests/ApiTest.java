@@ -1,4 +1,4 @@
-package ru.kazanexpress.tests.api;
+package ru.kazanexpress.tests.api.tests;
 
 import io.restassured.RestAssured;
 import org.junit.jupiter.api.BeforeAll;
