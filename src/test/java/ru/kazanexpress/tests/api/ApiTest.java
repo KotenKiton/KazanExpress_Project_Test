@@ -14,8 +14,35 @@ import static org.hamcrest.Matchers.notNullValue;
 public class ApiTest {
     @BeforeAll
     static void setUp() {
-        RestAssured.baseURI = "https://reqres.in/";
+        RestAssured.baseURI = "https://kazanexpress.ru/";
     }
+
+//https://api.kazanexpress.ru/api/v2/product/250186
+    // "payload": {
+    //        "data": {
+    //            "id": 250186,
+    //            "title": "Велосипедки женские, шорты спортивные",
+    //            "category": {
+    //                "id": 12279,
+    //                "title": "Велосипедки",
+    //                "productAmount": 131,
+    //                "parent": {
+    //                    "id": 2812,
+    //                    "title": "Спортивная одежда",
+    //                    "productAmount": 1456,
+    //                    "parent": {
+    //                        "id": 10116,
+    //                        "title": "Женская одежда",
+    //                        "productAmount": 36621,
+    //                        "parent": {
+    //                            "id": 10014,
+    //                            "title": "Одежда",
+    //                            "productAmount": 65462,
+    //                            "parent": null
+    //                        }
+    //                    }
+    //                }
+    //            },
 
     @Test
     @DisplayName("getStatusCode404")
