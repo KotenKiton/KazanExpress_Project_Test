@@ -32,8 +32,6 @@ public class ApiTest extends TestBase {
                 .body("id", is(250186));
     }
 
-
-
 //https://api.kazanexpress.ru/api/v2/product/250186
     // "payload": {
     //        "data": {

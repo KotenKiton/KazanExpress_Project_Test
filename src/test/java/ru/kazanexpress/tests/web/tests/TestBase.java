@@ -18,12 +18,12 @@ public class TestBase {
     @BeforeAll
     static void setUp() {
 
-        RestAssured.baseURI = "https://kazanexpress.ru/";
-        RestAssured.filters(withCustomTemplates());
-
-        Configuration.holdBrowserOpen = true;
         Configuration.baseUrl = "https://kazanexpress.ru/";
+        RestAssured.baseURI = "https://kazanexpress.ru/";
+        Configuration.holdBrowserOpen = true;
         Configuration.browserSize = "1920x1080";
+
+        RestAssured.filters(withCustomTemplates());
 
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
         //CredentialsConfig configLogg = ConfigFactory.create(CredentialsConfig.class);
