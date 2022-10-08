@@ -1,7 +1,5 @@
 package ru.kazanexpress.tests.api.tests;
 
-import io.restassured.RestAssured;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import ru.kazanexpress.tests.web.tests.TestBase;
@@ -25,7 +23,8 @@ public class ApiTest extends TestBase {
                 .spec(request)
                 .body(body)
                 .when()
-                .log().all() // Раскроет всё тело запроса
+                .log().all()// Раскроет всё тело запроса
+                .get("/v2/product/250186")
                 .then()
                 .log().all()
                 .spec(responseSpec200)
