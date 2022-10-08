@@ -18,7 +18,6 @@ public class TestBase {
     static void setUp() {
 
         Configuration.baseUrl = "https://kazanexpress.ru/";
-        RestAssured.baseURI = "https://kazanexpress.ru/";
         Configuration.browserSize = "1920x1080";
 
         RestAssured.filters(withCustomTemplates());

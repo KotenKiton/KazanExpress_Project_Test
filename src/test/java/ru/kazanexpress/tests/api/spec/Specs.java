@@ -13,7 +13,7 @@ public class Specs {
 
             .contentType(ContentType.JSON)
             .baseUri("https://api.kazanexpress.ru")
-            .basePath("/api")
+            .basePath("api")
             .log().all();
 
     public static ResponseSpecification responseSpec200 = new ResponseSpecBuilder()

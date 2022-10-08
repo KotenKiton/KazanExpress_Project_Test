@@ -1,13 +1,13 @@
 package ru.kazanexpress.tests.api.tests;
 
+import io.restassured.http.ContentType;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import ru.kazanexpress.tests.web.tests.TestBase;
 
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.is;
-import static ru.kazanexpress.tests.api.spec.Specs.request;
-import static ru.kazanexpress.tests.api.spec.Specs.responseSpec200;
+
 
 
 public class ApiTest extends TestBase {
@@ -18,15 +18,13 @@ public class ApiTest extends TestBase {
         String body = "{\"id\": \"250186\", \"title\": \"Велосипедки женские, шорты спортивные\" }";
 
         given()
-                .spec(request)
-                .body(body)
-                .when()
-                .log().all() // Раскроет всё тело запроса
-                .get("/v2/product/250186")
-                .then()
-                .log().all()
-                .spec(responseSpec200)
-                .body("id", is(250186));
+                .contentType(ContentType.JSON)
+                .when().log().all()
+                .pathParam("TOVAR",250186 )
+                .get("https://api.kazanexpress.ru/api/v2/product/{TOVAR}")
+                .then().log().all()
+                .statusCode(200)
+                .body("payload.data.id",is(250186));
     }
 }
 
