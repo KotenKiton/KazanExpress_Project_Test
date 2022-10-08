@@ -12,6 +12,7 @@ import static org.hamcrest.Matchers.notNullValue;
 import static ru.kazanexpress.tests.api.spec.Specs.request;
 import static ru.kazanexpress.tests.api.spec.Specs.responseSpec200;
 
+
 public class ApiTest extends TestBase {
 
     @Test
