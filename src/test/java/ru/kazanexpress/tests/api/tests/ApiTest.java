@@ -17,12 +17,10 @@ public class ApiTest  {
     @Test
     @DisplayName("200test")
     void postRegisterUserSuccess() {
-        String body = "{\"id\": \"250186\", \"title\": \"Велосипедки женские, шорты спортивные\" }";
 
         given()
                 .spec(Specs.request)
                 .filter(withCustomTemplates())
-                .body(body)
                 .when()
                 .log().all()
                 .get("/v2/product/250186")
