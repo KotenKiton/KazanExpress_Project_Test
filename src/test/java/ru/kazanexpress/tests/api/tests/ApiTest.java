@@ -9,7 +9,7 @@ import static io.restassured.RestAssured.given;
 
 import static org.hamcrest.Matchers.notNullValue;
 import static ru.kazanexpress.tests.api.helpers.AllureRestAssuredFilter.withCustomTemplates;
-
+import static ru.kazanexpress.tests.api.spec.Specs.responseSpec200;
 
 
 public class ApiTest  {
@@ -28,7 +28,7 @@ public class ApiTest  {
                 .get("/v2/product/250186")
                 .then()
                 .log().all()
-                .spec(Specs.responseSpec200)
+                .spec(responseSpec200)
                 .body("payload", notNullValue());
     }
 }
