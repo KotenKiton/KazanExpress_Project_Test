@@ -7,7 +7,7 @@ import ru.kazanexpress.tests.api.spec.Specs;
 
 import static io.restassured.RestAssured.given;
 
-import static org.hamcrest.Matchers.notNullValue;
+import static org.hamcrest.Matchers.is;
 import static ru.kazanexpress.tests.api.helpers.AllureRestAssuredFilter.withCustomTemplates;
 import static ru.kazanexpress.tests.api.spec.Specs.responseSpec200;
 
@@ -17,7 +17,6 @@ public class ApiTest  {
     @Test
     @DisplayName("200test")
     void postRegisterUserSuccess() {
-
         given()
                 .spec(Specs.request)
                 .filter(withCustomTemplates())
@@ -27,7 +26,8 @@ public class ApiTest  {
                 .then()
                 .log().all()
                 .spec(responseSpec200)
-                .body("payload", notNullValue());
+                .body("payload.data.id", is(250186))
+                .body("payload.data.title", is("Велосипедки женские, шорты спортивные"));
     }
 }
 
