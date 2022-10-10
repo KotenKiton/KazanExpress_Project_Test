@@ -15,8 +15,8 @@ import static ru.kazanexpress.tests.api.spec.Specs.responseSpec200;
 public class ApiTest  {
 
     @Test
-    @DisplayName("200test")
-    void postRegisterUserSuccess() {
+    @DisplayName("Запрос конкретного продукта \"Велосипедки\"")
+    void requestProductIdTest() {
         given()
                 .spec(Specs.request)
                 .filter(withCustomTemplates())
