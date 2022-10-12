@@ -57,6 +57,7 @@ public class ApiTest {
                 .spec(responseSpec401)
                 .log();
     }
+
     @Test
     @DisplayName("Неудачная авторизация")
     void unsuccessfulAuthorization() {
