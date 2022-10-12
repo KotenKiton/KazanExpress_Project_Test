@@ -56,6 +56,8 @@ public class ApiTest {
                 .then()
                 .spec(responseSpec401)
                 .log();
+        // дописать
+
     }
 
     @Test
@@ -69,6 +71,8 @@ public class ApiTest {
                 .then()
                 .spec(responseSpec401)
                 .log().body();
+        // дописать
+
     }
 
 }
