@@ -29,21 +29,46 @@ public class ApiTest {
                 .body("payload.data.id", is(250186))
                 .body("payload.data.title", is("Велосипедки женские, шорты спортивные"));
     }
+
     @Test
     @DisplayName("Добавить товар")
     void addProduct() {
 
-      given()
+        given()
                 .spec(request)
                 .filter(withCustomTemplates())
                 .get("/v2/product/1875667")
                 .then()
                 .spec(responseSpec200)
                 .log().body();
-
-
+        // дописать
     }
 
+    @Test
+    @DisplayName("Успешная авторизация")
+    void successfulAuthorization() {
+
+        given()
+                .spec(request)
+                .filter(withCustomTemplates())
+                .when()
+                .post("/oauth/token")
+                .then()
+                .spec(responseSpec401)
+                .log();
+    }
+    @Test
+    @DisplayName("Неудачная авторизация")
+    void unsuccessfulAuthorization() {
+      given()
+                .spec(request)
+                .filter(withCustomTemplates())
+                .when()
+                .post("/oauth/token")
+                .then()
+                .spec(responseSpec401)
+                .log().body();
+    }
 
 }
 
