@@ -31,7 +31,7 @@ public class ApiTest {
     }
 
     @Test
-    @DisplayName("Добавить товар - Монитор")
+    @DisplayName("Добавление товара в корзину")
     void addProduct() {
 
         given()
