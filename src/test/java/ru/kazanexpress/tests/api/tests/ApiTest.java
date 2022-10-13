@@ -31,13 +31,13 @@ public class ApiTest {
     }
 
     @Test
-    @DisplayName("Добавить товар")
+    @DisplayName("Добавить товар - Монитор")
     void addProduct() {
 
         given()
                 .spec(request)
                 .filter(withCustomTemplates())
-                .get("/v2/product/1875667")
+                .get("/v2/product/1252204")
                 .then()
                 .spec(responseSpec200)
                 .log().body();
