@@ -37,8 +37,11 @@ public class ApiTest {
         given()
                 .spec(request)
                 .filter(withCustomTemplates())
+                .when()
+                .log().all()
                 .get("/main/about/faq/")
                 .then()
+                .log().all()
                 .spec(responseSpec200)
                 .log().body();
         // дописать
