@@ -43,7 +43,8 @@ public class ApiTest {
                 .then()
                 .log().all()
                 .spec(responseSpec200)
-                .log().body();
+                .statusCode(200);
+//                .body("payload.sections.items.title",is("Как заказать?"));
         // дописать
     }
 
@@ -66,7 +67,7 @@ public class ApiTest {
     @Test
     @DisplayName("Неудачная авторизация")
     void unsuccessfulAuthorization() {
-      given()
+        given()
                 .spec(request)
                 .filter(withCustomTemplates())
                 .when()
