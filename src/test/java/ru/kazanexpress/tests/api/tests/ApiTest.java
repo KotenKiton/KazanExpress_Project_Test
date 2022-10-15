@@ -44,8 +44,7 @@ public class ApiTest {
                 .log().all()
                 .spec(responseSpec200)
                 .statusCode(200)
-                .body("payload.sections.items.title", is("Как заказать"));
-        // дописать
+                .body("payload.sections.items.title[0]", is("Как заказать?"));
     }
 
     @Test
