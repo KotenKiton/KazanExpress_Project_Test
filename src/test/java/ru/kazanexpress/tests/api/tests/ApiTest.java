@@ -31,13 +31,13 @@ public class ApiTest {
     }
 
     @Test
-    @DisplayName("Добавить товар")
-    void addProduct() {
+    @DisplayName("Успешное открытие страницы \"FAQ\"")
+    void faqOpenTest() {
 
         given()
                 .spec(request)
                 .filter(withCustomTemplates())
-                .get("/v2/product/250186")
+                .get("/main/about/faq/")
                 .then()
                 .spec(responseSpec200)
                 .log().body();
@@ -74,6 +74,7 @@ public class ApiTest {
         // дописать
 
     }
+
 
 }
 
