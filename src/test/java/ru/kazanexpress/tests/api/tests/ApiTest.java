@@ -43,8 +43,8 @@ public class ApiTest {
                 .then()
                 .log().all()
                 .spec(responseSpec200)
-                .statusCode(200);
-//                .body("payload.sections.items.title",is("Как заказать?"));
+                .statusCode(200)
+                .body("payload.sections.items.title", is("Как заказать"));
         // дописать
     }
 
