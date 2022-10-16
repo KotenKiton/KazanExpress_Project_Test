@@ -14,7 +14,6 @@ import static ru.kazanexpress.tests.api.spec.Specs.*;
 
 public class ApiTest {
 
-
     @Test
     @DisplayName("Запрос конкретного продукта \"Велосипедки\"")
     void requestProductIdTest() {
@@ -37,8 +36,7 @@ public class ApiTest {
                 .filter(withCustomTemplates())
                 .when().log().all()
                 .get("/main/about/faq/")
-                .then()
-                .log().all()
+                .then().log().all()
                 .spec(responseSpec200)
                 .statusCode(200)
                 .body("payload.sections[0].items[0].title", equalTo("Как заказать?"));
