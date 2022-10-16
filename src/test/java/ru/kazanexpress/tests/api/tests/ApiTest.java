@@ -21,11 +21,9 @@ public class ApiTest {
         given()
                 .spec(request)
                 .filter(withCustomTemplates())
-                .when()
-                .log().all()
+                .when().log().all()
                 .get("/v2/product/250186")
-                .then()
-                .log().all()
+                .then().log().all()
                 .spec(responseSpec200)
                 .body("payload.data.id", is(250186))
                 .body("payload.data.title", is("Велосипедки женские, шорты спортивные"));
@@ -34,7 +32,6 @@ public class ApiTest {
     @Test
     @DisplayName("Успешное открытие страницы \"FAQ\"")
     void faqOpenTest() {
-
         given()
                 .spec(request)
                 .filter(withCustomTemplates())
