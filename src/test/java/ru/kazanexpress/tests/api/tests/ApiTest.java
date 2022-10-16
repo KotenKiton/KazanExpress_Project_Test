@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import static io.restassured.RestAssured.given;
 
+import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.is;
 import static ru.kazanexpress.tests.api.helpers.AllureRestAssuredFilter.withCustomTemplates;
 import static ru.kazanexpress.tests.api.spec.Specs.*;
@@ -37,14 +38,13 @@ public class ApiTest {
         given()
                 .spec(request)
                 .filter(withCustomTemplates())
-                .when()
-                .log().all()
+                .when().log().all()
                 .get("/main/about/faq/")
                 .then()
                 .log().all()
                 .spec(responseSpec200)
                 .statusCode(200)
-                .body("payload.sections.items.title[0]", is("Как заказать?"));
+                .body("payload.sections[0].items[0].title", equalTo("Как заказать?"));
     }
 
     @Test
