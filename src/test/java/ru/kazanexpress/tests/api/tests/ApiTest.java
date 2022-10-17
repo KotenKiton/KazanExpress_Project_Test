@@ -52,10 +52,8 @@ public class ApiTest {
                 .get("/main/promo-categories")
                 .then().log().all()
                 .spec(responseSpec200)
-                .statusCode(200);
-
-
-
+                .statusCode(200)
+                .body("payload[0].title", equalTo("ОСАГО"));
     }
 
     @Test
