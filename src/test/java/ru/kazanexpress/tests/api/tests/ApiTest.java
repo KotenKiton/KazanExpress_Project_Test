@@ -44,7 +44,7 @@ public class ApiTest {
 
     @Test
     @DisplayName("Успешное открытие 'Осаго'")
-    void successfulAuthorization() {
+    void osagoOpenTest() {
         given()
                 .spec(request)
                 .filter(withCustomTemplates())
@@ -57,17 +57,9 @@ public class ApiTest {
     }
 
     @Test
-    @DisplayName("Неудачная авторизация")
-    void unsuccessfulAuthorization() {
-        given()
-                .spec(request)
-                .filter(withCustomTemplates())
-                .when()
-                .post("/oauth/token")
-                .then()
-                .spec(responseSpec401)
-                .log().body();
-        // дописать
+    @DisplayName("Добавить товар")
+    void addProduct() {
+
 
     }
 
