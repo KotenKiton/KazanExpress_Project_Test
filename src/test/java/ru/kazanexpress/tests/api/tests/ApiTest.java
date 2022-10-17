@@ -45,16 +45,16 @@ public class ApiTest {
     @Test
     @DisplayName("Успешное открытие 'Осаго'")
     void successfulAuthorization() {
-
         given()
                 .spec(request)
                 .filter(withCustomTemplates())
+                .when().log().all()
+                .get("/main/promo-categories")
                 .then().log().all()
-                .get()
-                .then()
-                .spec(responseSpec401)
-                .log();
-        // дописать
+                .spec(responseSpec200)
+                .statusCode(200);
+
+
 
     }
 
