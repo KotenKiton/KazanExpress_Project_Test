@@ -43,7 +43,7 @@ public class ApiTest {
     }
 
     @Test
-    @DisplayName("Успешная авторизация")
+    @DisplayName("Успешное открытие 'Осаго'")
     void successfulAuthorization() {
 
         given()
