@@ -49,8 +49,8 @@ public class ApiTest {
         given()
                 .spec(request)
                 .filter(withCustomTemplates())
-                .when()
-                .post("/oauth/token")
+                .then().log().all()
+                .get()
                 .then()
                 .spec(responseSpec401)
                 .log();
