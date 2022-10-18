@@ -1,4 +1,4 @@
-package ru.kazanexpress.tests.api.spec;
+package ru.kazanexpress.tests.api.specs;
 
 import io.restassured.builder.ResponseSpecBuilder;
 import io.restassured.http.ContentType;
