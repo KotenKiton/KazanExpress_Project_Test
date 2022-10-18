@@ -57,12 +57,10 @@ public class ApiTest {
     }
 
     @Test
-    @DisplayName("Добавить товар")
-    void addProduct() {
+    @DisplayName("Успешная авторизация")
+    void successfulAuthTest() {
 
 
     }
-
-
 }
 
