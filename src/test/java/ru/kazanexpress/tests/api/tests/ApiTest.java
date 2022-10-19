@@ -3,7 +3,6 @@ package ru.kazanexpress.tests.api.tests;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import ru.kazanexpress.tests.api.models.User;
-import ru.kazanexpress.tests.api.models.UserData;
 
 
 import static io.restassured.RestAssured.given;
