@@ -65,13 +65,15 @@ public class ApiTest {
         User response = given()
                 .spec(request)
                 .filter(withCustomTemplates())
-                .get("/v2/product/1069769")
-                .then()
+                .when().log().all()
+                .get("/v2/product/1252208")
+                .then().log().all()
                 .spec(responseSpec200)
                 .log().body()
                 .extract().as(User.class);
 
         assertEquals(response.getId(), user.getId());
+        assertEquals(response.getTitle(), user.getTitle());
 
     }
 }
