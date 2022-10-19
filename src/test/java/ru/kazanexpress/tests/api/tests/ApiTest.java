@@ -3,6 +3,7 @@ package ru.kazanexpress.tests.api.tests;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import ru.kazanexpress.tests.api.models.User;
+import ru.kazanexpress.tests.api.models.UserData;
 
 
 import static io.restassured.RestAssured.given;
@@ -57,10 +58,10 @@ public class ApiTest {
                 .statusCode(200)
                 .body("payload[0].title", equalTo("ОСАГО"));
     }
+
     @Test
     @DisplayName("Добавить товар")
-    void addProduct() {
-
+    void addProductTest() {
         User user = new User();
         User response = given()
                 .spec(request)
@@ -69,12 +70,9 @@ public class ApiTest {
                 .get("/v2/product/1252208")
                 .then().log().all()
                 .spec(responseSpec200)
-                .log().body()
                 .extract().as(User.class);
 
         assertEquals(response.getId(), user.getId());
         assertEquals(response.getTitle(), user.getTitle());
-
     }
 }
-
