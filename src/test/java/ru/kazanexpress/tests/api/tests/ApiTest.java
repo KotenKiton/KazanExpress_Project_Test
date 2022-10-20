@@ -4,7 +4,7 @@ import org.aeonbits.owner.ConfigFactory;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import ru.kazanexpress.tests.api.models.User;
-import ru.kazanexpress.tests.api.models.UserLogin;
+import ru.kazanexpress.tests.api.models.request.RequestUserLogin;
 import ru.kazanexpress.tests.web.config.WebConfig;
 
 
@@ -103,11 +103,11 @@ public class ApiTest {
     @DisplayName("Востановление пароля несуществующего пользователя")
     void passRecoveryNotUser() {
 
-        UserLogin userLogin = new UserLogin();
-        userLogin.setLogin("534535436234");
+        RequestUserLogin requestUserLogin = new RequestUserLogin();
+        requestUserLogin.setLogin("534535436234");
 
         given()
-                .spec(request).body(userLogin)
+                .spec(request).body(requestUserLogin)
                 .filter(withCustomTemplates())
                 .when().log().all()
                 .post("/restore")
