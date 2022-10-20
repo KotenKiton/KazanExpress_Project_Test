@@ -5,6 +5,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import ru.kazanexpress.tests.api.models.User;
 import ru.kazanexpress.tests.api.models.request.RequestUserLogin;
+import ru.kazanexpress.tests.api.models.response.ResponseUserLogin;
 import ru.kazanexpress.tests.web.config.WebConfig;
 
 
@@ -106,13 +107,14 @@ public class ApiTest {
         RequestUserLogin requestUserLogin = new RequestUserLogin();
         requestUserLogin.setLogin("534535436234");
 
-        given()
+        ResponseUserLogin responseUserLogin = given()
                 .spec(request).body(requestUserLogin)
                 .filter(withCustomTemplates())
                 .when().log().all()
                 .post("/restore")
                 .then().log().all()
-                .statusCode(404);
+                .statusCode(404)
+                .extract().body().jsonPath().getObject("payload.errors", ResponseUserLogin.class);
 
 
     }

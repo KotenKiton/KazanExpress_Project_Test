@@ -1,10 +1,14 @@
-package ru.kazanexpress.tests.api.models;
+package ru.kazanexpress.tests.api.models.response;
+
 
 import io.qameta.allure.internal.shadowed.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 
+
 @Data
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class UserData {
-    private User user;
+public class ResponseUserLogin {
+
+    public String message;
+    public String detailMessage;
 }
