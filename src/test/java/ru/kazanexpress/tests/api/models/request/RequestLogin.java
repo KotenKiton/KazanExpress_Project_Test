@@ -1,4 +1,4 @@
-package ru.kazanexpress.tests.api.models;
+package ru.kazanexpress.tests.api.models.request;
 
 
 import io.qameta.allure.internal.shadowed.jackson.annotation.JsonIgnoreProperties;

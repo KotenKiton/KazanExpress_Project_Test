@@ -14,4 +14,6 @@ public interface WebConfig extends Config {
     @Key("userPassword")
     String userPassword();
 
+    String testHeaderAuthBasic();
+
 }

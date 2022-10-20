@@ -1,21 +1,25 @@
 package ru.kazanexpress.tests.api.tests;
 
-import org.junit.jupiter.api.Assertions;
+import org.aeonbits.owner.ConfigFactory;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import ru.kazanexpress.tests.api.models.User;
+import ru.kazanexpress.tests.web.config.WebConfig;
 
 
 import static io.restassured.RestAssured.given;
 
-import static org.hamcrest.Matchers.equalTo;
-import static org.hamcrest.Matchers.is;
+
+import static org.hamcrest.Matchers.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static ru.kazanexpress.tests.api.helpers.AllureRestAssuredFilter.withCustomTemplates;
 import static ru.kazanexpress.tests.api.specs.Specs.*;
 
 
 public class ApiTest {
+
+    WebConfig config = ConfigFactory.create(WebConfig.class);
+
 
     @Test
     @DisplayName("Запрос конкретного продукта \"Велосипедки\"")
@@ -62,7 +66,6 @@ public class ApiTest {
     @Test
     @DisplayName("Добавить товар")
     void addProductTest() {
-        User user = new User();
         User response = given()
                 .spec(request)
                 .filter(withCustomTemplates())
@@ -70,32 +73,27 @@ public class ApiTest {
                 .get("/v2/product/1252208")
                 .then().log().all()
                 .spec(responseSpec200)
-                .extract().as(User.class);
+                .extract().body().jsonPath().getObject("payload.data", User.class);
 
-        assertEquals(response.getId(), user.getId());
-        assertEquals(response.getTitle(), user.getTitle());
+        assertEquals(1252208, response.getId());
+        assertEquals("Монитор Xiaomi Mi Desktop Monitor 27\", черный (BHR4975EU)", response.getTitle());
     }
 
     @Test
-    @DisplayName("201test")
-    void postStatusCode201() {
-
-        RequestMorpheus requestMorpheus = new RequestMorpheus(); // Инициализируем - создаем обьект класса.
-        requestMorpheus.setJob("leader"); // установили значение Body,которое мы отправляем.
-        requestMorpheus.setName("morpheus");
-
-        ResponseMorpheusJobIdCreatedAt responseMorpheus = given()
-                .spec(request).body(requestMorpheus)
+    @DisplayName("Негативная проверка получения токенов(Access||Refresh)")
+    void authTokensTest() {
+        given()
+                .spec(request)
+                .formParam("grant_type", "password")
+                .formParam("username", config.userLogin())
+                .formParam("password", "123445")
+                .header("Content-Type", "application/x-www-form-urlencoded")
+                .header("authorization", config.testHeaderAuthBasic())
                 .when()
-                .post("/users")
-                .then().spec(response201)
-                .extract().as(ResponseMorpheusJobIdCreatedAt.class);
-
-        Assertions.assertEquals(requestMorpheus.getJob(), responseMorpheus.getJob());
-        Assertions.assertEquals(responseMorpheus.getName(), responseMorpheus.getName());
-        Assertions.assertNotNull(responseMorpheus.getId());
-
-    }
+                .post("/oauth/token")
+                .then().log().all()
+                .statusCode(400)
+                .body("errors[0].message", is("Bad request"));
     }
 
 }
