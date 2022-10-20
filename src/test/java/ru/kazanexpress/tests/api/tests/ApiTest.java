@@ -84,6 +84,7 @@ public class ApiTest {
     void authTokensTest() {
         given()
                 .spec(request)
+                .filter(withCustomTemplates())
                 .formParam("grant_type", "password")
                 .formParam("username", config.userLogin())
                 .formParam("password", "123445")
@@ -100,7 +101,9 @@ public class ApiTest {
     @DisplayName("Востановление пароля несуществующего пользователя")
     void passRecoveryNotUser() {
         given()
-                .spec(request);
+                .spec(request)
+                .filter(withCustomTemplates());
+
 
     }
 }
