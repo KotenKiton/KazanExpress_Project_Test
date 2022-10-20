@@ -1,6 +1,7 @@
 package ru.kazanexpress.tests.api.tests;
 
 import org.aeonbits.owner.ConfigFactory;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import ru.kazanexpress.tests.api.models.User;
@@ -104,8 +105,11 @@ public class ApiTest {
     @DisplayName("Востановление пароля несуществующего пользователя")
     void passRecoveryNotUser() {
 
+        String exceptMessage = "Entity not found";
+        String detailMessage = "Account with requested email/phone not found";
+
         RequestUserLogin requestUserLogin = new RequestUserLogin();
-        requestUserLogin.setLogin("534535436234");
+        requestUserLogin.setLogin("534535436259");
 
         ResponseUserLogin responseUserLogin = given()
                 .spec(request).body(requestUserLogin)
@@ -115,6 +119,9 @@ public class ApiTest {
                 .then().log().all()
                 .statusCode(404)
                 .extract().body().jsonPath().getObject("payload.errors", ResponseUserLogin.class);
+
+        Assertions.assertEquals(exceptMessage,responseUserLogin.getMessage());
+        Assertions.assertEquals(detailMessage, responseUserLogin.getDetailMessage());
 
 
     }
