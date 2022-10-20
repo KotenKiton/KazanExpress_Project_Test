@@ -85,6 +85,7 @@ public class ApiTest {
         given()
                 .spec(request)
                 .filter(withCustomTemplates())
+                .when().log().all()
                 .formParam("grant_type", "password")
                 .formParam("username", config.userLogin())
                 .formParam("password", "123445")
@@ -102,7 +103,9 @@ public class ApiTest {
     void passRecoveryNotUser() {
         given()
                 .spec(request)
-                .filter(withCustomTemplates());
+                .filter(withCustomTemplates())
+                .when().log().all()
+
 
 
     }
