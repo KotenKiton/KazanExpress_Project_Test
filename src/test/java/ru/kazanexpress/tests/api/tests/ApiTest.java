@@ -1,5 +1,6 @@
 package ru.kazanexpress.tests.api.tests;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import ru.kazanexpress.tests.api.models.User;
@@ -74,4 +75,27 @@ public class ApiTest {
         assertEquals(response.getId(), user.getId());
         assertEquals(response.getTitle(), user.getTitle());
     }
+
+    @Test
+    @DisplayName("201test")
+    void postStatusCode201() {
+
+        RequestMorpheus requestMorpheus = new RequestMorpheus(); // Инициализируем - создаем обьект класса.
+        requestMorpheus.setJob("leader"); // установили значение Body,которое мы отправляем.
+        requestMorpheus.setName("morpheus");
+
+        ResponseMorpheusJobIdCreatedAt responseMorpheus = given()
+                .spec(request).body(requestMorpheus)
+                .when()
+                .post("/users")
+                .then().spec(response201)
+                .extract().as(ResponseMorpheusJobIdCreatedAt.class);
+
+        Assertions.assertEquals(requestMorpheus.getJob(), responseMorpheus.getJob());
+        Assertions.assertEquals(responseMorpheus.getName(), responseMorpheus.getName());
+        Assertions.assertNotNull(responseMorpheus.getId());
+
+    }
+    }
+
 }
