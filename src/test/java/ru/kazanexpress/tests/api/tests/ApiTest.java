@@ -105,7 +105,9 @@ public class ApiTest {
                 .spec(request)
                 .filter(withCustomTemplates())
                 .when().log().all()
-
+                .post("/restore")
+                .then().log().all()
+                .statusCode(200);
 
 
     }
