@@ -14,6 +14,6 @@ public interface WebConfig extends Config {
     @Key("userPassword")
     String userPassword();
 
-    String testHeaderAuthBasic();
+    String testHeaderAuthBasic(); // без этого не работает
 
 }

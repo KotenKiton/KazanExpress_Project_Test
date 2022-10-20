@@ -96,4 +96,11 @@ public class ApiTest {
                 .body("errors[0].message", is("Bad request"));
     }
 
+    @Test
+    @DisplayName("Востановление пароля несуществующего пользователя")
+    void passRecoveryNotUser() {
+        given()
+                .spec(request);
+
+    }
 }
