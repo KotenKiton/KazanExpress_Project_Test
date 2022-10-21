@@ -122,7 +122,5 @@ public class ApiTest {
 
         Assertions.assertEquals(exceptMessage,responseUserLogin.getMessage());
         Assertions.assertEquals(detailMessage, responseUserLogin.getDetailMessage());
-
-
     }
 }
