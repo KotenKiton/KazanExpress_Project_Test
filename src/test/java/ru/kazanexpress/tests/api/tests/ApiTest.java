@@ -10,6 +10,8 @@ import ru.kazanexpress.tests.api.models.response.ResponseUserLogin;
 import ru.kazanexpress.tests.web.config.WebConfig;
 
 
+import java.util.List;
+
 import static io.restassured.RestAssured.given;
 
 
@@ -111,16 +113,19 @@ public class ApiTest {
         RequestUserLogin requestUserLogin = new RequestUserLogin();
         requestUserLogin.setLogin("534535436259");
 
-        ResponseUserLogin responseUserLogin = given()
-                .spec(request).body(requestUserLogin)
+        List<ResponseUserLogin> responseUserLogin = given()
+                .spec(request)
+                .body(requestUserLogin)
                 .filter(withCustomTemplates())
                 .when().log().all()
                 .post("/restore")
                 .then().log().all()
                 .statusCode(404)
-                .extract().body().jsonPath().getObject("payload.errors", ResponseUserLogin.class);
+                .extract().body().jsonPath().getList("payload.errors", ResponseUserLogin.class);
 
-        Assertions.assertEquals(exceptMessage,responseUserLogin.getMessage());
-        Assertions.assertEquals(detailMessage, responseUserLogin.getDetailMessage());
+        for (ResponseUserLogin r : responseUserLogin) {
+            Assertions.assertEquals(r.message, exceptMessage);
+            Assertions.assertEquals(r.detailMessage, detailMessage);
+        }
     }
 }
