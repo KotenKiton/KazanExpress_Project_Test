@@ -13,6 +13,8 @@ import ru.kazanexpress.tests.web.config.WebConfig;
 import ru.kazanexpress.tests.web.pages.AutorizationFormPage;
 import ru.kazanexpress.tests.web.pages.CardFirstPopularPage;
 
+import java.time.Duration;
+
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byText;
@@ -48,7 +50,9 @@ public class UiTests extends TestBase {
 
         step("Нажать на кнопку 'Электроника' на главной странице", () -> {
             $(byText("Электроника")).click();
-            $("[data-test-id=text__title]").shouldHave(text("Электроника"));
+            $("[data-test-id=text__title]")
+                    .shouldBe(Condition.text("Электроника"),
+                            Duration.ofSeconds(15));
         });
     }
 
