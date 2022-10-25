@@ -3,6 +3,7 @@ package ru.kazanexpress.tests.api.tests;
 import org.aeonbits.owner.ConfigFactory;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import ru.kazanexpress.tests.api.models.User;
 import ru.kazanexpress.tests.api.models.request.RequestUserLogin;
@@ -20,7 +21,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static ru.kazanexpress.tests.api.helpers.AllureRestAssuredFilter.withCustomTemplates;
 import static ru.kazanexpress.tests.api.specs.Specs.*;
 
-
+@Tag("API")
 public class ApiTest {
 
     WebConfig config = ConfigFactory.create(WebConfig.class);
