@@ -16,4 +16,5 @@ public interface WebConfig extends Config {
 
     String testHeaderAuthBasic(); // без этого не работает
 
+    String baseUrl();
 }
