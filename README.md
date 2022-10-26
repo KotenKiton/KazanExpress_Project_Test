@@ -1,5 +1,7 @@
 # Проект по автоматизации тестирования сайта интернет-магазина "KazanExpress"
 
+<a id="anchor"></a>
+
 ## <a target="_blank" href="https://kazanexpress.ru/">"KazanExpress"</a>
 
 ## :floppy_disk: Содержание:
