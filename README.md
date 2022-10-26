@@ -70,8 +70,6 @@ gradle clean UI
 
 ## :gear: Удалённый запуск
 
-<img title="Jenkins ParamStart" src="images/screenshots/params.png">
-
 Удаленный запуск осуществляется с помощью команды:
 
 ```
