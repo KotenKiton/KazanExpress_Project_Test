@@ -12,8 +12,6 @@
 - <a href="#electric_plug-%D1%81%D0%B1%D0%BE%D1%80%D0%BA%D0%B0-%D0%B2-jenkins">Сборка в Jenkins</a>
 - <a href="#open_book-allure-отчет">Allure отчет</a>
 - <a href="#robot-отчет-в-telegram">Отчет в Telegram</a>
-- <a href="#open_book-интеграция-с-allure-testops">Интеграция с Allure TestOps</a>
-- <a href="#open_book-интеграция-с-jira">Интеграция с Jira</a>
 - <a href="#film_projector-видео-примеры-прохождения-тестов">Видео примеры прохождения тестов</a>
 
 ## :computer: Технологии и инструменты
@@ -88,20 +86,17 @@ gradle clean UI
 ```
 clean
 ${TASK}
--Dbrowser=${BROWSER}
--DbaseUrl=${BASE_URL}
--DbaseUri=${BASE_URI}
--DbrowserVersion=${BROWSER_VERSION}
--DbrowserSize=${BROWSER_SIZE}
--DremoteDriverUrl=${REMOTE}
+-DbrowserSize=${SIZE}
+-Denv=${ENV_URL}
+-Dbrowser=chrome
 ```
 
 ## :electric_plug: Сборка в Jenkins
 
-### <a target="_blank" href="https://jenkins.autotests.cloud/job/012-bokoffil-diplom1/">Сборка в Jenkins</a>
+### <a target="_blank" href="https://jenkins.autotests.cloud/job/DiplomProjectKazanExpress/">Сборка в Jenkins</a>
 
 <p align="center">
-<img title="Jenkins Dashboard" src="images/screenshots/Jenkins dashboard.png">
+<img title="Jenkins Dashboard" src="images/screenshots/JenkinsDashboard.png">
 </p>  
 
 ## :open_book: Allure отчет
@@ -109,46 +104,30 @@ ${TASK}
 - ### Главный экран отчета
 
 <p align="center">
-<img title="Allure Overview Dashboard" src="images/screenshots/allure1.png">
+<img title="Allure Overview Dashboard" src="images/screenshots/AllureMain.png">
 </p>
 
 - ### Страница с проведенными тестами
 
 <p align="center">
-<img title="Allure Test Page" src="images/screenshots/allure2.png">
+<img title="Allure Test Page" src="images/screenshots/AllureTests.png">
 </p>
 
 - ### Страница дашбордов
 
 <p align="center">
-<img title="Allure Test Page" src="images/screenshots/allure3.png">
+<img title="Allure Test Page" src="images/screenshots/AllureDashboards.png">
 </p>
 
 ## :robot: Отчет в Telegram
 
 <p align="center">
-<img title="Telegram notification message" src="images/screenshots/telegram.png">
-</p>
-
-## :open_book: Интеграция с Allure TestOps
-
-<p align="center">
-<img title="Allure TestOps" src="images/screenshots/allureTO.png">
-</p>
-
-<p align="center">
-<img title="Allure TestOps" src="images/screenshots/allureTO1.png">
-</p>
-
-## :open_book: Интеграция с Jira
-
-<p align="center">
-<img title="Allure TestOps" src="images/screenshots/jira.png">
+<img title="Telegram notification message" src="images/screenshots/TelegramReport.png">
 </p>
 
 ## :film_projector: Видео примеры прохождения тестов
 
 > К каждому тесту в отчете прилагается видео. Видео теста "Проверка вопросов личного плана" представлено ниже.
 <p align="center">
-  <img title="Selenoid Video" src="images/screenshots/016b2f12b9c662dccc8a4077c6476a23.gif">
+  <img title="Selenoid Video" src="images/screenshots/VideoTest.gif">
 </p>
