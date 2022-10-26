@@ -108,7 +108,7 @@ ${TASK}
 ## :robot: Отчет в Telegram
 
 <p align="center">
-<img title="Telegram notification message" src="images/screenshots/TelegramReport.png">
+<img title="Telegram notification message" src="images/screenshots/TelegramReport.jpg">
 </p>
 
 ## :film_projector: Видео примеры прохождения тестов
