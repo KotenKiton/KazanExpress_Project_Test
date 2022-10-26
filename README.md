@@ -131,3 +131,7 @@ ${TASK}
 <p align="center">
   <img title="Selenoid Video" src="images/screenshots/VideoTest.gif">
 </p>
+
+:arrow_up: [Вверх страницы](#anchor)
+
+:new_moon_with_face: <a target="_blank" href="https://t.me/BiLLGradLe">t.me/BiLLGradLe</a>
