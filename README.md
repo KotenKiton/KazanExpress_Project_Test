@@ -77,7 +77,7 @@ clean
 ${TASK}
 -DbrowserSize=${SIZE}
 -Denv=${ENV_URL}
--Dbrowser=chrome
+-Dbrowser=${BROWSER}
 ```
 
 ## :electric_plug: Сборка в Jenkins
