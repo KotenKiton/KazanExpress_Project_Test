@@ -8,7 +8,6 @@
 - <a href="#heavy_check_mark-реализованные-проверки-ui">Реализованные проверки UI</a>
 - <a href="#heavy_check_mark-реализованные-проверки-api">Реализованные проверки API</a>
 - <a href="#arrow_forward-запуск-из-терминала">Запуск из терминала</a>
-- <a href="#gear-запуск-тестов-с-выбором-параметров">Запуск тестов с выбором параметров</a>
 - <a href="#electric_plug-%D1%81%D0%B1%D0%BE%D1%80%D0%BA%D0%B0-%D0%B2-jenkins">Сборка в Jenkins</a>
 - <a href="#open_book-allure-отчет">Allure отчет</a>
 - <a href="#robot-отчет-в-telegram">Отчет в Telegram</a>
