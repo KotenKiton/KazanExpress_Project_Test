@@ -43,7 +43,7 @@ public class UiTests extends TestBase {
     }
 
     @Test
-    @DisplayName("проверка заголовка страницы 'Электроника'")
+    @DisplayName("Проверка заголовка страницы 'Электроника'")
     void headerElectronicsTest() {
         step("Открыть главную страницу", () ->
                 open(""));

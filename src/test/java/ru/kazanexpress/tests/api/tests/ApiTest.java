@@ -70,7 +70,7 @@ public class ApiTest {
     }
 
     @Test
-    @DisplayName("Добавить товар")
+    @DisplayName("Добавить товар в корзину")
     void addProductTest() {
         User response = given()
                 .spec(request)
