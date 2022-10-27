@@ -2,7 +2,7 @@
 
 <a id="anchor"></a>
 
-## <a target="_blank" href="https://kazanexpress.ru/">"KazanExpress"</a>
+## <a target="_blank" href="https://kazanexpress.ru/">KazanExpress</a>
 
 ## :floppy_disk: Содержание:
 
