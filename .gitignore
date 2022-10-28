@@ -12,7 +12,6 @@
 
 # Properties files
 *.properties
-
 # Package Files #
 *.war
 *.nar
