@@ -60,13 +60,13 @@ gradle clean test
 API тесты:
 
 ```
-gradle clean API
+gradle clean api
 ```
 
 UI тесты:
 
 ```
-gradle clean UI
+gradle clean ui
 ```
 
 Удаленный запуск осуществляется с помощью команды:
