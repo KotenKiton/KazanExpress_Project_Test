@@ -26,7 +26,6 @@ public class ApiTest {
 
     WebConfig config = ConfigFactory.create(WebConfig.class);
 
-
     @Test
     @DisplayName("Запрос конкретного продукта \"Велосипедки\"")
     void requestProductIdTest() {
