@@ -21,7 +21,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static ru.kazanexpress.tests.api.helpers.AllureRestAssuredFilter.withCustomTemplates;
 import static ru.kazanexpress.tests.api.specs.Specs.*;
 
-@Tag("API")
+@Tag("api")
 public class ApiTest {
 
     WebConfig config = ConfigFactory.create(WebConfig.class);

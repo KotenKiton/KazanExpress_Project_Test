@@ -21,7 +21,7 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
 
-@Tag("UI")
+@Tag("ui")
 public class UiTests extends TestBase {
 
     AutorizationFormPage autorizationFormPage = new AutorizationFormPage();

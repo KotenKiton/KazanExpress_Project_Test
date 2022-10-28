@@ -82,14 +82,14 @@ tasks.withType(Test) {
     }
 }
 
-task UI(type: Test) {
+task ui(type: Test) {
     useJUnitPlatform {
-        includeTags 'UI'
+        includeTags 'ui'
     }
 }
 
-task API(type: Test) {
+task api(type: Test) {
     useJUnitPlatform {
-        includeTags 'API'
+        includeTags 'api'
     }
 }
