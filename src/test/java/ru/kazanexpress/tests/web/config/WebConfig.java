@@ -8,10 +8,8 @@ import org.aeonbits.owner.Config;
 })
 public interface WebConfig extends Config {
 
-    @Key("userLogin")
     String userLogin();
 
-    @Key("userPassword")
     String userPassword();
 
     String testHeaderAuthBasic(); // без этого не работает
