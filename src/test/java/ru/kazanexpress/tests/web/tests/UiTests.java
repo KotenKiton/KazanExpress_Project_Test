@@ -113,7 +113,7 @@ public class UiTests extends TestBase {
                 .confirmationPopUp()
 
                 //asserts
-                .productIsEqualToOne();
+                .assertProductIsEqualToOne();
     }
 }
 

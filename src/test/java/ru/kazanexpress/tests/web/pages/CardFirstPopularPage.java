@@ -41,7 +41,7 @@ public class CardFirstPopularPage {
         return this;
     }
 
-    public CardFirstPopularPage productIsEqualToOne() {
+    public CardFirstPopularPage assertProductIsEqualToOne() {
         step("Проверить, что в корзине отображается товар в количестве 1", () ->
                 buttonCard.shouldHave(text("1")));
 
