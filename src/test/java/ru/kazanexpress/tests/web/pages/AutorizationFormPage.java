@@ -25,7 +25,8 @@ public class AutorizationFormPage {
 
     public AutorizationFormPage authButtonClick() {
         buttonAuth.click();
-        headerAuthForm.shouldHave(text("Вход"));
+        headerAuthForm.shouldHave(text("Вход")); // Здесь тоже самое самое. В виде параметров ?
+        // параметры должны передавтаь на вход ?
 
         return this;
     }
@@ -50,5 +51,6 @@ public class AutorizationFormPage {
 
     public void assertUserAuth() {
         buttonUser.shouldHave(text("KotenKiton"));
-    }
+    }//Нужно чтобы этот параметр
+    // KotenKiton  в виде параметров шел на вход
 }
