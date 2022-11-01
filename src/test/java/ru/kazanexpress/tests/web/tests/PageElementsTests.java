@@ -1,7 +1,6 @@
 package ru.kazanexpress.tests.web.tests;
 
 import com.codeborne.selenide.Condition;
-import org.aeonbits.owner.ConfigFactory;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
@@ -9,9 +8,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
-import ru.kazanexpress.tests.web.config.WebConfig;
-import ru.kazanexpress.tests.web.pages.AutorizationFormPage;
-import ru.kazanexpress.tests.web.pages.CardFirstPopularPage;
+
 
 import java.time.Duration;
 
@@ -23,13 +20,6 @@ import static io.qameta.allure.Allure.step;
 
 @Tag("ui")
 public class PageElementsTests extends TestBase {
-
-    AutorizationFormPage autorizationFormPage = new AutorizationFormPage();
-    CardFirstPopularPage cardFirstPopularPage = new CardFirstPopularPage();
-
-    WebConfig webConfig = ConfigFactory.create(WebConfig.class, System.getProperties());
-    String userLogin = webConfig.userLogin();
-    String userPassword = webConfig.userPassword();
 
     @Test
     @BeforeEach
@@ -86,34 +76,6 @@ public class PageElementsTests extends TestBase {
         $$("[data-test-id=text__title]")
                 .find(Condition.text(expectedResult))
                 .shouldBe(visible);
-    }
-
-    @Test
-    @DisplayName("Тест формы авторизации")
-    void authPageTest() {
-
-        autorizationFormPage
-                .openPage()
-                .authButtonClick()
-                .setLoginField(userLogin)
-                .setPasswordField(userPassword)
-                .clickEnterButton()
-
-                //asserts
-                .assertUserAuth();
-    }
-
-    @Test
-    @DisplayName("Отображение количества товара, после добавления 1 позиции")
-    void addCardTest() {
-
-        cardFirstPopularPage
-                .openPage()
-                .addCard()
-                .confirmationPopUp()
-
-                //asserts
-                .assertProductIsEqualToOne();
     }
 }
 

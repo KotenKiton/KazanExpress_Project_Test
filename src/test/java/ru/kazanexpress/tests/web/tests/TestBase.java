@@ -27,7 +27,7 @@ public class TestBase {
         String remoteUrlSelenoid = System.getProperty("remoteUrl", configLogg.remoteUrl());
         String browserSize = System.getProperty("browserSize", "1920x1080");
         String browser = System.getProperty("browser", "chrome");
-        String environment = System.getProperty("env",webConfig.baseUrl());
+        String environment = System.getProperty("env", webConfig.baseUrl());
 
         Configuration.browserSize = browserSize;
         Configuration.browser = browser;
@@ -38,7 +38,7 @@ public class TestBase {
         capabilities.setCapability("enableVideo", true);// Для локально запуска это закоментить
         Configuration.browserCapabilities = capabilities;// Для локально запуска это закоментить
 
-        Configuration.baseUrl = environment ;
+        Configuration.baseUrl = environment;
         Configuration.browserSize = "1920x1080";
 
         RestAssured.filters(withCustomTemplates());
