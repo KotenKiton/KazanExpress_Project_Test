@@ -22,7 +22,7 @@ import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
 
 @Tag("ui")
-public class UiTests extends TestBase {
+public class PageElementsTests extends TestBase {
 
     AutorizationFormPage autorizationFormPage = new AutorizationFormPage();
     CardFirstPopularPage cardFirstPopularPage = new CardFirstPopularPage();
