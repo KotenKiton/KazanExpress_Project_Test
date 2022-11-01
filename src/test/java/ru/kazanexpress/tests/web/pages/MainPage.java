@@ -11,5 +11,4 @@ public class MainPage {
 
         return this;
     }
-
 }
