@@ -43,7 +43,6 @@ public class TestBase {
 
         RestAssured.filters(withCustomTemplates());
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
-
     }
 
     @AfterEach
