@@ -49,8 +49,9 @@ public class AutorizationFormPage {
         return this;
     }
 
-    public void assertUserAuth() {
-        buttonUser.shouldHave(text("KotenKiton"));
-    }//Нужно чтобы этот параметр
-    // KotenKiton  в виде параметров шел на вход
+    public AutorizationFormPage assertUserAuth(String userName) {
+        buttonUser.shouldHave(text(userName));
+
+        return this;
+    }
 }
