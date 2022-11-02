@@ -17,9 +17,9 @@ public class CardFirstPopularPage {
 
     // actions
     public CardFirstPopularPage openPage() {
-        step("Открыть главную страницу 'https://kazanexpress.ru/'", () ->
+        step("Открыть главную страницу", () ->
                 open(""));
-
+//'https://kazanexpress.ru/'
         return this;
     }
 
