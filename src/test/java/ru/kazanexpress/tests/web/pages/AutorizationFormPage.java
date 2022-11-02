@@ -23,10 +23,9 @@ public class AutorizationFormPage {
         return this;
     }
 
-    public AutorizationFormPage authButtonClick() {
+    public AutorizationFormPage authButtonClick(String enter) {
         buttonAuth.click();
-        headerAuthForm.shouldHave(text("Вход")); // Здесь тоже самое самое. В виде параметров ?
-        // параметры должны передавтаь на вход ?
+        headerAuthForm.shouldHave(text(enter));
 
         return this;
     }

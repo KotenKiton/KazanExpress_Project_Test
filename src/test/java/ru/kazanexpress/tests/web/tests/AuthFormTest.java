@@ -23,7 +23,7 @@ public class AuthFormTest extends TestBase {
 
         autorizationFormPage
                 .openPage()
-                .authButtonClick()
+                .authButtonClick("Вход")
                 .setLoginField(userLogin)
                 .setPasswordField(userPassword)
                 .clickEnterButton()
