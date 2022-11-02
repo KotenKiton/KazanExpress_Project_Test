@@ -29,6 +29,6 @@ public class AuthFormTest extends TestBase {
                 .clickEnterButton()
 
                 //asserts
-                .assertUserAuth(userLogin);
+                .assertUserAuth("KotenKiton");
     }
 }
