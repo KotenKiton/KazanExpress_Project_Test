@@ -45,10 +45,11 @@ public class AllureAttachments {
     }
 
     public static URL getVideoUrl(String sessionId) {
-        String videoUrl = "https://selenoid.autotests.cloud/video/" + sessionId + ".mp4";
+        String videoUrl = System.getProperty("videoUrl", "https://selenoid.autotests.cloud/video/");
+        String videoUrlSession= videoUrl + sessionId + ".mp4";
 
         try {
-            return new URL(videoUrl);
+            return new URL(videoUrlSession);
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }
