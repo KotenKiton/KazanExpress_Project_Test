@@ -48,11 +48,6 @@ dependencies {
 
 test {
     useJUnitPlatform()
-    retry {
-        failOnPassedAfterRetry = true
-        maxFailures = 10
-        maxRetries = 1
-    }
 }
 
 compileTestJava {
