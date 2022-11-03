@@ -6,7 +6,7 @@ import static io.qameta.allure.Allure.step;
 public class MainPage {
 
     public MainPage openPage() {
-        step("Открыть главную страницу 'https://kazanexpress.ru/'", () ->
+        step("Открыть главную страницу", () ->
                 open(""));
 
         return this;

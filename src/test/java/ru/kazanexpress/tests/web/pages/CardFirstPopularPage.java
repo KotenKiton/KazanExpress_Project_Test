@@ -4,7 +4,6 @@ import com.codeborne.selenide.SelenideElement;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
 import static io.qameta.allure.Allure.step;
 
 public class CardFirstPopularPage {
@@ -16,13 +15,6 @@ public class CardFirstPopularPage {
     SelenideElement buttonCard = $($("[data-test-id='button__cart']"));
 
     // actions
-    public CardFirstPopularPage openPage() {
-        step("Открыть главную страницу", () ->
-                open(""));
-//'https://kazanexpress.ru/'
-        return this;
-    }
-
     public CardFirstPopularPage addCard() {
         step("Нажать кнопку 'Добавить в корзину'", () ->
                 addCard.click());

@@ -25,11 +25,11 @@ public class PageElementsTests extends TestBase {
     @BeforeEach
     @DisplayName("Проверка 'Хэдэра' сайта на стартовой странице")
     void firstTest() {
-        step("Открыть главную страницу", () -> {
-            open("");
-            $$("[data-test-id=text__promo-delivery-info]").first()
-                    .shouldHave(text("Доставим ваш заказ бесплатно — всего за 1 день!"));
-        });
+        step("Открыть главную страницу", () ->
+                open(""));
+        step("Проверка 'Хэдэра'", () ->
+                $$("[data-test-id=text__promo-delivery-info]").first()
+                        .shouldHave(text("Доставим ваш заказ бесплатно — всего за 1 день!")));
     }
 
     @Test
@@ -37,7 +37,6 @@ public class PageElementsTests extends TestBase {
     void headerElectronicsTest() {
         step("Открыть главную страницу", () ->
                 open(""));
-
         step("Нажать на кнопку 'Электроника' на главной странице", () -> {
             $(byText("Электроника")).click();
             $("[data-test-id=text__title]")
@@ -58,7 +57,7 @@ public class PageElementsTests extends TestBase {
         $("[data-test-id=button__search]").click();
         $$("[data-test-id=text__title]")
                 .find(Condition.text(testData))
-                .shouldBe(visible);
+                .shouldBe(visible, Duration.ofSeconds(15));
     }
 
     @CsvSource(value = {
@@ -75,7 +74,7 @@ public class PageElementsTests extends TestBase {
         $("[data-test-id=button__search]").click();
         $$("[data-test-id=text__title]")
                 .find(Condition.text(expectedResult))
-                .shouldBe(visible);
+                .shouldBe(visible, Duration.ofSeconds(15));
     }
 }
 

@@ -7,10 +7,12 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import ru.kazanexpress.tests.web.config.WebConfig;
 import ru.kazanexpress.tests.web.pages.AutorizationFormPage;
+import ru.kazanexpress.tests.web.pages.MainPage;
 
 @Tag("ui")
 public class AuthFormTest extends TestBase {
 
+    MainPage mainPage = new MainPage();
     AutorizationFormPage autorizationFormPage = new AutorizationFormPage();
     WebConfig webConfig = ConfigFactory.create(WebConfig.class, System.getProperties());
 
@@ -20,15 +22,14 @@ public class AuthFormTest extends TestBase {
     @Test
     @DisplayName("Тест формы авторизации")
     void authPageTest() {
-
+        mainPage
+                .openPage();
         autorizationFormPage
-                .openPage()
                 .authButtonClick("Вход")
                 .setLoginField(userLogin)
                 .setPasswordField(userPassword)
                 .clickEnterButton()
 
-                //asserts
                 .assertUserAuth("KotenKiton");
     }
 }

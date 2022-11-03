@@ -10,20 +10,17 @@ import ru.kazanexpress.tests.web.pages.MainPage;
 public class CardTest extends TestBase {
 
     MainPage mainPage = new MainPage();
-
-    // Как этот mainPage( розовый) совместить с cardFirstPopulPage ?
     CardFirstPopularPage cardFirstPopularPage = new CardFirstPopularPage();
 
     @Test
     @DisplayName("Отображение количества товара, после добавления 1 позиции")
     void addCardTest() {
-
+        mainPage
+                .openPage();
         cardFirstPopularPage
-                .openPage()
                 .addCard()
                 .confirmationPopUp()
 
-                //asserts
                 .assertProductIsEqualToOne();
     }
 }

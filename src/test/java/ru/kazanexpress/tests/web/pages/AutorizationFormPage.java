@@ -4,8 +4,6 @@ import com.codeborne.selenide.SelenideElement;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
-
 public class AutorizationFormPage {
 
     // locators
@@ -17,12 +15,6 @@ public class AutorizationFormPage {
     SelenideElement headerAuthForm = $("[data-test-id=text__name-modal-base]");
 
     // actions
-    public AutorizationFormPage openPage() {
-        open("");
-
-        return this;
-    }
-
     public AutorizationFormPage authButtonClick(String enter) {
         buttonAuth.click();
         headerAuthForm.shouldHave(text(enter));
