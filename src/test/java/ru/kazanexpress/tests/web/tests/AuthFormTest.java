@@ -19,17 +19,20 @@ public class AuthFormTest extends TestBase {
     String userLogin = webConfig.userLogin();
     String userPassword = webConfig.userPassword();
 
+    private String buttonAuthName = "Вход";
+    private String UserName = "KotenKiton";
+
     @Test
     @DisplayName("Тест формы авторизации")
     void authPageTest() {
         mainPage
                 .openPage();
         autorizationFormPage
-                .authButtonClick("Вход")
+                .authButtonClick(buttonAuthName)
                 .setLoginField(userLogin)
                 .setPasswordField(userPassword)
                 .clickEnterButton()
 
-                .assertUserAuth("KotenKiton");
+                .assertUserAuth(UserName);
     }
 }
